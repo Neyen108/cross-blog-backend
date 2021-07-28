@@ -31,7 +31,7 @@ class BlogpostsController {
         res.status(204).send();
     }
 
-    async removeUser(req: express.Request, res: express.Response) {
+    async removeBlogpost(req: express.Request, res: express.Response) {
         log(await blogpostsService.deleteById(req.body.id));
         res.status(204).send();
     }
