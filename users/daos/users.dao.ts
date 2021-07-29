@@ -35,7 +35,7 @@ class UsersDao {
         const user = new this.User({
             _id: userId,
             ...userFields,
-            permissionFlags: PermissionFlag.FREE_PERMISSION,
+            permissionFlags: PermissionFlag.READ_PERMISSION,
         });
 
         await user.save();

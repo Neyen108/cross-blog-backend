@@ -62,7 +62,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             UsersMiddleware.validateSameEmailBelongToSameUser,
             UsersMiddleware.userCantChangePermission,
             permissionMiddleware.permissionFlagRequired(
-                PermissionFlag.PAID_PERMISSION
+                PermissionFlag.READ_PERMISSION
             ),
             UsersController.put,
         ]);
@@ -80,7 +80,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             UsersMiddleware.validatePatchEmail,
             UsersMiddleware.userCantChangePermission,
             permissionMiddleware.permissionFlagRequired(
-                PermissionFlag.PAID_PERMISSION
+                PermissionFlag.READ_PERMISSION
             ),
             UsersController.patch,
         ]);
@@ -94,7 +94,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             // /users/:userId, not anything beneath it in the hierarchy
 
             permissionMiddleware.permissionFlagRequired(
-                PermissionFlag.FREE_PERMISSION
+                PermissionFlag.ADMIN_PERMISSION
             ),
             UsersController.updatePermissionFlags,
         ]);
