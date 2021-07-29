@@ -10,7 +10,6 @@ const log: debug.IDebugger = debug("app:blogposts-dao");
 
 class BlogpostsDao {
     Schema = mongooseService.getMongoose().Schema;
-    //TODO: correct the schema
 
     blogpostSchema = new this.Schema(
         {
