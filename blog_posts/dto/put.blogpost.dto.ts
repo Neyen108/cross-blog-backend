@@ -1,10 +1,11 @@
 export interface PutBlogpostDto {
     title: string;
     imageLink: string;
-    dateCreated: Date;
     content: string;
-    likedBy: string[];
-    commentedBy: string[];
-    createdBy: string;
-    lastEditedBy: string;
+    likedBy: string[]; //string array containing all the userIds who have liked the blogpost
+    comments: { comment: string; userId: string; name: string }[];
+    createdBy: { userId: string; name: string };
+    lastEditedBy: { userId: string; name: string };
+    mediumPublish: boolean;
+    devtoPublish: boolean;
 }

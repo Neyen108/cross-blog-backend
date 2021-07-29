@@ -10,6 +10,7 @@ const log: debug.IDebugger = debug("app:blogposts-dao");
 
 class BlogpostsDao {
     Schema = mongooseService.getMongoose().Schema;
+    //TODO: correct the schema
 
     blogpostSchema = new this.Schema(
         {
@@ -18,9 +19,11 @@ class BlogpostsDao {
             imageLink: String,
             content: String,
             likedBy: [String],
-            commentedBy: [String],
-            createdBy: String,
-            lastEditedBy: String,
+            comments: [{ comment: String, userId: String, name: String }],
+            createdBy: { userId: String, name: String },
+            lastEditedBy: { userId: String, name: String },
+            mediumPublish: Boolean,
+            devtoPublish: Boolean,
         },
         { id: false, timestamps: true }
     );
@@ -43,6 +46,8 @@ class BlogpostsDao {
         const blogpost = new this.Blogpost({
             _id: blogpostId,
             ...blogpostFields,
+            mediumPublish: false,
+            devtoPublish: false,
         });
 
         await blogpost.save();
