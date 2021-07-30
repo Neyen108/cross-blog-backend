@@ -1,8 +1,19 @@
-# A Docker enabled Nodejs/Typescript MongoDB REST API    
+# CrossBlog 🔀 Backend `work-in-progress`  
   
-A project to create a Docker enabled Nodejs/Typescript MongoDB REST API which can act as a boilerplate/template.    
+This repository houses a Docker enabled Nodejs/Typescript MongoDB backend for a personal project of mine - `CrossBlog 🔀`   
 
-The project follows REST Principles and Folder structure alongwith some basic Tests.   
+The project follows REST Principles and Folder structure, alongwith some basic Tests.  
+
+# What is CrossBlog 🔀   
+CrossBlog 🔀 is my personal Blog management system/dashboard.   
+CrossBlog is made to actualize the idea of - `write once, post everywhere`   
+
+Often times, bloggers/writers write blog posts on one platform. 
+- They promote the blog post as they usually would.      
+- A few days or a week later, when traffic is dying down, they syndicate the post or crosspost on Medium, or Dev.to, or Hashnode.      
+
+Anyone who has done it before can tell you, it’s tedious and somewhat annoying to do. Part of the reason for this is that the respective blogging platforms don’t make it easy to import robust content automatically. You have to go through and copy-and-paste everything, format it using their tools, and generally reconstruct the entire post every time.  
+
 
 # Quick Start Guide
 
