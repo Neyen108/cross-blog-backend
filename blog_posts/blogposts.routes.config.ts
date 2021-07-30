@@ -4,6 +4,8 @@ import jwtMiddleware from "../auth/middleware/jwt.middleware";
 import blogpostsController from "./controllers/blogposts.controller";
 import permissionMiddleware from "../common/middleware/common.permission.middleware";
 import { PermissionFlag } from "../common/middleware/common.permissionflag.enum";
+import { body } from "express-validator";
+import BodyValidationMiddleware from "../common/middleware/body.validation.middleware";
 
 export class BlogpostsRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -21,7 +23,17 @@ export class BlogpostsRoutes extends CommonRoutesConfig {
                 ),
                 blogpostsController.listBlogposts
             )
-            .post();
+            .post(
+                body("title").isString(),
+                body("imageLink").isURL(),
+                body("content").isString(),
+                body("createdBy").isObject(),
+                BodyValidationMiddleware.verifyBodyFieldsErrors,
+                permissionMiddleware.permissionFlagRequired(
+                    PermissionFlag.ADMIN_PERMISSION
+                ),
+                blogpostsController.createBlogpost
+            );
 
         return this.app;
     }
